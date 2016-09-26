@@ -19,6 +19,8 @@ difference () {
         translate([board_w/2,board_d/2,board_h+cam_h+5.5+2.5+(3/2)]) cylinder (h=3, d=11.83,center=true);
         // lens body
         translate([board_w/2,board_d/2,board_h+cam_h+5.5+2.5+3+(3.6/2)]) cylinder (h=3.6, d=14,center=true);
+        translate([(board_w-cam_w)/2-1,(board_d-cam_d),cam_h/2+board_h]) cylinder(h=cam_h, d=5, center=true);
+        translate([(board_w-cam_w)/2+1+cam_w,(board_d-cam_d),cam_h/2+board_h]) cylinder(h=cam_h, d=5, center=true);
     }
     translate([3,3,2]) cylinder(d=3,h=5, center=true, $fn=50);
     translate([board_w-3,3,2]) cylinder(d=3,h=5, center=true, $fn=50);
