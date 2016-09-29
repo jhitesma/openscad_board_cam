@@ -6,7 +6,7 @@ cam_w = 17;
 cam_d = 17;
 cam_h = 7.5;
 
-hole_offset = 2.8;
+hole_offset = 2.6;
 
 $fn=50;
 
@@ -22,13 +22,13 @@ module board_cam(board_w,board_d,board_h,cam_w,cam_d,cam_h) {
             union() {
                 translate([(board_w-cam_w)/2,(board_d-cam_d)/2,board_h]) cube([cam_w,cam_d,cam_h]);
                 translate([board_w/2,board_d/2,board_h+cam_h+(5.5/2)]) cylinder (h=5.5, d=15.5,center=true);
-                translate([(board_w-cam_w)/2-1,(board_d-cam_d),cam_h/2+board_h]) cylinder(h=cam_h, d=5, center=true, $fn=50);
-                translate([(board_w-cam_w)/2+1+cam_w,(board_d-cam_d),cam_h/2+board_h]) cylinder(h=cam_h, d=5, center=true, $fn=50);
-                translate([(board_w-cam_w)/2-1.25,(board_d-cam_d)-2.5,board_h]) cube([cam_w+2.5,5,cam_h]);
+                translate([(board_w-cam_w)/2-1,board_d/2,cam_h/2+board_h]) cylinder(h=cam_h, d=5, center=true, $fn=50);
+                translate([(board_w-cam_w)/2+1+cam_w,board_d/2,cam_h/2+board_h]) cylinder(h=cam_h, d=5, center=true, $fn=50);
+                translate([(board_w-cam_w)/2-1.25,board_d/2-2.5,board_h]) cube([cam_w+2.5,5,cam_h]);
             }
         
             // lock ring
-            translate([board_w/2,board_d/2,board_h+cam_h+5.5]) lock_ring(15.5,2.5,1.9);
+            translate([board_w/2,board_d/2,board_h+cam_h+5.5]) lock_ring(15.5,2.5,2);
             // lens_shaft
             translate([board_w/2,board_d/2,board_h+cam_h+5.5+2.5+(3/2)]) cylinder (h=3, d=11.83,center=true);
             // lens body
@@ -38,8 +38,8 @@ module board_cam(board_w,board_d,board_h,cam_w,cam_d,cam_h) {
                     translate([board_w/2,board_d/2,board_h+cam_h+5.5+2.5+3+(3.6/2)+5]) sphere (d=14,center=true);        
                 }
                 difference() {
-                    translate([board_w/2,board_d/2,board_h+cam_h+5.5+2.5+3+(3.6/2)-5]) sphere (d=14,center=true);        
-                    translate([board_w/2,board_d/2,board_h+cam_h+3]) cube ([20,20,20], center=true);        
+                    translate([board_w/2,board_d/2,board_h+cam_h+5.5+2.5+3+(3.6/2)-5.1]) sphere (d=14,center=true);        
+                    translate([board_w/2,board_d/2,board_h+cam_h+1.5]) cube ([20,20,20], center=true);        
                 }
             }
         }
